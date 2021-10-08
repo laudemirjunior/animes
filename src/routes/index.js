@@ -1,6 +1,6 @@
 import { Route, Switch } from "react-router";
+import AnimeInfo from "../pages/AnimeInfo";
 import Home from "../pages/home";
-import Info from "../pages/info";
 
 const Routes = () => {
   return (
@@ -8,8 +8,8 @@ const Routes = () => {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route path="/Company/:name">
-        <Info />
+      <Route path="/anime/:title">
+        <AnimeInfo />
       </Route>
     </Switch>
   );

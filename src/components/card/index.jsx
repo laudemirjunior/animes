@@ -2,6 +2,7 @@ import { AnimeOfSesonContext } from "../../providers/animeOfSeson";
 import { useContext, useState } from "react";
 import { Scroll } from "./styles";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Card = () => {
   const { animeOfSeson } = useContext(AnimeOfSesonContext);
@@ -24,6 +25,8 @@ const Card = () => {
     setScrollX(x);
   };
 
+  console.log(animeOfSeson);
+
   return (
     <div>
       <h1>Animes da temporada</h1>
@@ -35,7 +38,9 @@ const Card = () => {
           {animeOfSeson.map((item) => {
             return (
               <div>
-                <img style={{ width: "200px" }} src={item.image_url} alt="" />
+                <Link to={`/anime/${item.title}`}>
+                  <img style={{ width: "200px" }} src={item.image_url} alt="" />
+                </Link>
               </div>
             );
           })}
