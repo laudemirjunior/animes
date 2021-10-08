@@ -12,12 +12,25 @@ export const Scroll = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    div {
+      div {
+        position: relative;
+        left: -60px;
+        top: -130px;
+        background-color: white;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        opacity: 0.8;
+        font-weight: bold;
+        color: var(--gray3);
+      }
+    }
   }
   svg {
-    background-color: var(--blue3);
+    background-color: var(--gray2);
     border-radius: 50%;
-    font-size: 80px;
+    font-size: 60px;
     color: white;
     position: absolute;
     display: flex;

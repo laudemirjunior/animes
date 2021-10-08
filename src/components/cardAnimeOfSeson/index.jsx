@@ -4,10 +4,10 @@ import { Scroll } from "./styles";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Bar from "../bar";
 
-const Card = () => {
+const CardAnimeOfSeson = () => {
   const { animeOfSeson } = useContext(AnimeOfSesonContext);
   const [scrollX, setScrollX] = useState(0);
-  // console.log(animeOfSeson[0].title);
+  console.log(animeOfSeson);
 
   const handleLeftArrow = () => {
     let x = scrollX + Math.round(window.innerWidth / 2);
@@ -19,7 +19,7 @@ const Card = () => {
 
   const handleRightArroe = () => {
     let x = scrollX - Math.round(window.innerWidth / 2);
-    let listW = animeOfSeson.length * (200 + 15);
+    let listW = animeOfSeson.length * (200 + 55);
     if (window.innerWidth - listW > x) {
       x = window.innerWidth - listW;
     }
@@ -38,6 +38,7 @@ const Card = () => {
             return (
               <div>
                 <img src={item.image_url} alt="" />
+                <div>{item.score === null ? "5.0" : item.score}</div>
               </div>
             );
           })}
@@ -47,4 +48,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default CardAnimeOfSeson;
