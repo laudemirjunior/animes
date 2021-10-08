@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyleBar = styled.div`
   width: 100%;
   height: 50px;
-  background-color: var(--blue2);
+  background-color: var(--blue3);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,6 +12,7 @@ export const StyleBar = styled.div`
     margin: 10px;
     span {
       margin: 10px;
+      font-weight: 600;
     }
   }
 `;

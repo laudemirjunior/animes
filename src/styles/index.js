@@ -22,6 +22,10 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     font-weight: 600;
   }
+  img, button, a, span, svg 
+  {
+    cursor: pointer;
+  }
 `;
 
 export default GlobalStyle;
