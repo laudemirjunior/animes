@@ -1,16 +1,16 @@
 import { createContext, useEffect, useState } from "react";
 import api from "../../services";
 
-export const AnimeOfSesonContext = createContext([]);
+export const AnimeOfSeasonContext = createContext([]);
 
-export const AnimeOfSesonProvider = ({ children }) => {
-  const [animeOfSeson, setAnimeOfSeson] = useState([]);
+export const AnimeOfSeasonProvider = ({ children }) => {
+  const [animeOfSeason, setAnimeOfSeason] = useState([]);
   const [topAnime, setTopAnime] = useState([]);
 
   useEffect(() => {
     api
-      .get("/season/2021/fall")
-      .then((response) => setAnimeOfSeson(response.data.anime))
+      .get("/season/2021/winter")
+      .then((response) => setAnimeOfSeason(response.data.anime))
       .catch((err) => console.log(err));
   }, []);
 
@@ -22,8 +22,8 @@ export const AnimeOfSesonProvider = ({ children }) => {
   }, []);
 
   return (
-    <AnimeOfSesonContext.Provider value={{ animeOfSeson, topAnime }}>
+    <AnimeOfSeasonContext.Provider value={{ animeOfSeason, topAnime }}>
       {children}
-    </AnimeOfSesonContext.Provider>
+    </AnimeOfSeasonContext.Provider>
   );
 };

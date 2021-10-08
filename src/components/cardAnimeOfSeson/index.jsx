@@ -1,10 +1,11 @@
-import { AnimeOfSesonContext } from "../../providers/animeOfSeson";
+import { AnimeOfSeasonContext } from "../../providers/animeOfSeason";
 import { useContext, useState } from "react";
 import { Scroll } from "./styles";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { Link } from "react-router-dom";
 
-const CardAnimeOfSeson = () => {
-  const { animeOfSeson, topAnime } = useContext(AnimeOfSesonContext);
+const CardAnimeOfSeason = () => {
+  const { animeOfSeason, topAnime } = useContext(AnimeOfSeasonContext);
   const [scrollX, setScrollX] = useState(0);
   console.log(animeOfSeson);
 
@@ -16,27 +17,31 @@ const CardAnimeOfSeson = () => {
     setScrollX(x);
   };
 
-  const handleRightArroe = () => {
+  const handleRightArrow = () => {
     let x = scrollX - Math.round(window.innerWidth / 2);
-    let listW = animeOfSeson.length * (200 + 55);
+    let listW = animeOfSeason.length * (200 + 55);
     if (window.innerWidth - listW > x) {
       x = window.innerWidth - listW;
     }
     setScrollX(x);
   };
 
+  console.log(animeOfSeason);
+
   return (
     <div>
       <h1>Animes da temporada</h1>
       <Scroll>
         <IoIosArrowBack onClick={handleLeftArrow} />
-        <IoIosArrowForward onClick={handleRightArroe} />
+        <IoIosArrowForward onClick={handleRightArrow} />
         <div style={{ marginLeft: scrollX }}>
-          {animeOfSeson.map((item) => {
+          {animeOfSeason.map((item) => {
             return (
               <div>
-                <img src={item.image_url} alt="" />
-                <div>{item.score === null ? "5.0" : item.score}</div>
+                <Link to={`/anime/${item.title}`}>
+                  <img style={{ width: "200px" }} src={item.image_url} alt="" />
+                  <div>{item.score === null ? "5.0" : item.score}</div>
+                </Link>
               </div>
             );
           })}
@@ -46,4 +51,4 @@ const CardAnimeOfSeson = () => {
   );
 };
 
-export default CardAnimeOfSeson;
+export default CardAnimeOfSeason;

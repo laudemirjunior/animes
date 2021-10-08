@@ -1,4 +1,5 @@
 import { Route, Switch } from "react-router";
+import AnimeInfo from "../pages/AnimeInfo";
 import Home from "../pages/home";
 
 const Routes = () => {
@@ -6,6 +7,9 @@ const Routes = () => {
     <Switch>
       <Route exact path="/">
         <Home />
+      </Route>
+      <Route path="/anime/:title">
+        <AnimeInfo />
       </Route>
     </Switch>
   );

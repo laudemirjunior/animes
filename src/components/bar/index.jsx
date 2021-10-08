@@ -1,10 +1,12 @@
+import { useHistory } from "react-router";
 import { StyleBar } from "./styles";
 
 const Bar = () => {
+  const history = useHistory();
   return (
     <StyleBar>
       <div>
-        <span>Home</span>
+        <span onClick={() => history.push("/")}>Home</span>
       </div>
       <div>
         <span>Cadastro</span>
