@@ -5,6 +5,7 @@ export const AnimeOfSesonContext = createContext([]);
 
 export const AnimeOfSesonProvider = ({ children }) => {
   const [animeOfSeson, setAnimeOfSeson] = useState([]);
+  const [topAnime, setTopAnime] = useState([]);
 
   useEffect(() => {
     api
@@ -13,8 +14,15 @@ export const AnimeOfSesonProvider = ({ children }) => {
       .catch((err) => console.log(err));
   }, []);
 
+  useEffect(() => {
+    api
+      .get("/top/anime")
+      .then((response) => setTopAnime(response.data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
-    <AnimeOfSesonContext.Provider value={{ animeOfSeson }}>
+    <AnimeOfSesonContext.Provider value={{ animeOfSeson, topAnime }}>
       {children}
     </AnimeOfSesonContext.Provider>
   );

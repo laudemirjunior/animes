@@ -2,12 +2,11 @@ import { AnimeOfSesonContext } from "../../providers/animeOfSeson";
 import { useContext, useState } from "react";
 import { Scroll } from "./styles";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import Bar from "../bar";
 
 const CardAnimeOfSeson = () => {
-  const { animeOfSeson } = useContext(AnimeOfSesonContext);
+  const { animeOfSeson, topAnime } = useContext(AnimeOfSesonContext);
   const [scrollX, setScrollX] = useState(0);
-  console.log(animeOfSeson);
+  console.log(topAnime);
 
   const handleLeftArrow = () => {
     let x = scrollX + Math.round(window.innerWidth / 2);
@@ -28,7 +27,6 @@ const CardAnimeOfSeson = () => {
 
   return (
     <div>
-      <Bar />
       <h1>Animes da temporada</h1>
       <Scroll>
         <IoIosArrowBack onClick={handleLeftArrow} />
