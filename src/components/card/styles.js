@@ -15,7 +15,7 @@ export const Scroll = styled.div`
     gap: 15px;
   }
   svg:nth-child(1) {
-    background-color: gray;
+    background-color: var(--blue3);
     border-radius: 50%;
     font-size: 80px;
     color: white;
@@ -33,7 +33,7 @@ export const Scroll = styled.div`
     color: white;
     position: absolute;
     right: 0;
-    background-color: gray;
+    background-color: var(--blue3);
     border-radius: 50%;
     display: flex;
     align-items: center;
