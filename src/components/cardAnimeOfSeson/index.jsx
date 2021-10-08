@@ -6,7 +6,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 const CardAnimeOfSeson = () => {
   const { animeOfSeson, topAnime } = useContext(AnimeOfSesonContext);
   const [scrollX, setScrollX] = useState(0);
-  console.log(topAnime);
+  console.log(animeOfSeson);
 
   const handleLeftArrow = () => {
     let x = scrollX + Math.round(window.innerWidth / 2);

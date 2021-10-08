@@ -48,4 +48,10 @@ export const Scroll = styled.div`
   svg:hover {
     opacity: 0.9;
   }
+  img {
+    width: 200px;
+    :hover {
+      aspect-ratio: auto 175 / 238;
+    }
+  }
 `;
