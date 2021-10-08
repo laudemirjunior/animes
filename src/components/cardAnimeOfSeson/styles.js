@@ -12,35 +12,38 @@ export const Scroll = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    div {
+      div {
+        position: relative;
+        left: -60px;
+        top: -130px;
+        background-color: white;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        opacity: 0.8;
+        font-weight: bold;
+        color: var(--gray3);
+      }
+    }
+  }
+  svg {
+    background-color: var(--gray2);
+    border-radius: 50%;
+    font-size: 60px;
+    color: white;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    backdrop-filter: blur(4px);
   }
   svg:nth-child(1) {
-    background-color: gray;
-    border-radius: 50%;
-    font-size: 80px;
-    color: white;
-    position: absolute;
     left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.6;
-    backdrop-filter: blur(4px);
-    cursor: pointer;
   }
   svg:nth-child(2) {
-    font-size: 80px;
-    color: white;
-    position: absolute;
     right: 0;
-    background-color: gray;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.6;
-    backdrop-filter: blur(4px);
-    cursor: pointer;
   }
   svg:hover {
     opacity: 0.9;

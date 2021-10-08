@@ -1,16 +1,17 @@
 import { useContext } from "react";
 import { useParams } from "react-router";
-import { AnimeOfSesonContext } from "../../providers/animeOfSeson";
-import { Link } from "react-router-dom";
+import { AnimeOfSeasonContext } from "../../providers/animeOfSeason";
+import Bar from "../../components/bar";
 
 function AnimeInfo() {
-  const { animeOfSeson } = useContext(AnimeOfSesonContext);
+  const { animeOfSeason } = useContext(AnimeOfSeasonContext);
   const { title } = useParams();
 
-  const anime = animeOfSeson.find((item) => item.title === title);
+  const anime = animeOfSeason.find((item) => item.title === title);
 
   return (
     <div>
+      <Bar />
       <img style={{ width: "200px" }} src={anime.image_url} alt="" />
       <p>Title: {anime.title}</p>
       <p>
@@ -21,10 +22,14 @@ function AnimeInfo() {
         {Boolean(anime.licensors[0]) === false ? "Unknown" : anime.licensors[0]}
       </p>
       <p>Genres: {anime.genres.map((genre) => `${genre.name}, `)}</p>
-      <p>Producers: {anime.producers[0].name}</p>
+      {/* <p>
+        Producers:{" "}
+        {Boolean(anime.producers[0].name) === false
+          ? "Unknown"
+          : anime.producers[0].name}
+      </p> */}
       <p>Synopsis: {anime.synopsis}</p>
       <p>Source: {anime.source}</p>
-      <Link to="/">Voltar</Link>
     </div>
   );
 }

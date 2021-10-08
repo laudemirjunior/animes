@@ -1,9 +1,11 @@
-import Card from "../../components/card";
+import Bar from "../../components/bar";
+import CardAnimeOfSeson from "../../components/cardAnimeOfSeson";
 
 const Home = () => {
   return (
     <div>
-      <Card />
+      <Bar />
+      <CardAnimeOfSeson />
     </div>
   );
 };

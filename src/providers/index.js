@@ -1,5 +1,5 @@
-import { AnimeOfSesonProvider } from "./animeOfSeson";
+import { AnimeOfSeasonProvider } from "./animeOfSeason";
 
 export default function Providers({ children }) {
-  return <AnimeOfSesonProvider>{children}</AnimeOfSesonProvider>;
+  return <AnimeOfSeasonProvider>{children}</AnimeOfSeasonProvider>;
 }
