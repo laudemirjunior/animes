@@ -9,7 +9,7 @@ export const AnimeOfSeasonProvider = ({ children }) => {
 
   useEffect(() => {
     api
-      .get("/season/2021/winter")
+      .get("/season/2021/fall")
       .then((response) => setAnimeOfSeason(response.data.anime))
       .catch((err) => console.log(err));
   }, []);
