@@ -1,12 +1,8 @@
-import {
-  BsFillArrowLeftCircleFill,
-  BsArrowRightCircleFill,
-} from "react-icons/bs";
 import { AnimeOfSeasonContext } from "../../providers/animeOfSeason";
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { Scroll } from "./styles";
-import Slider from "react-slick";
+import { Scroll, Span } from "./styles";
+import Carousel from "react-grid-carousel";
 
 const CardAnimeOfSeason = () => {
   const { animeOfSeason } = useContext(AnimeOfSeasonContext);
@@ -16,65 +12,53 @@ const CardAnimeOfSeason = () => {
     history.push(`/anime/${item.title}`);
   }
 
-  var settings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 5,
-    slidesToScroll: 5,
-    centerPadding: "50px",
-    prevArrow: <BsFillArrowLeftCircleFill />,
-    nextArrow: <BsArrowRightCircleFill />,
-    responsive: [
-      {
-        breakpoint: 1300,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4,
-        },
-      },
-      {
-        breakpoint: 900,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-        },
-      },
-      {
-        breakpoint: 700,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 400,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-      {
-        breakpoint: 300,
-        settings: "unslick",
-      },
-    ],
-  };
-
   return (
     <Scroll>
-      <Slider {...settings}>
+      <Carousel
+        cols={6}
+        rows={1}
+        gap={10}
+        loop={true}
+        autoplay={5000}
+        containerStyle={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        responsiveLayout={[
+          {
+            breakpoint: 1100,
+            cols: 5,
+          },
+          {
+            breakpoint: 900,
+            cols: 4,
+          },
+          {
+            breakpoint: 700,
+            cols: 3,
+          },
+          {
+            breakpoint: 500,
+            cols: 2,
+          },
+        ]}
+        mobileBreakpoint={350}
+      >
         {animeOfSeason.map((item) => {
           return (
-            <div onClick={() => handleClick(item)}>
+            <Carousel.Item onClick={() => handleClick(item)}>
               <img
-                width="200px"
+                width="100%"
                 height="300px"
                 src={item.image_url}
                 alt=""
               ></img>
-              <span>{item.score === null ? "5.0" : item.score}</span>
-            </div>
+              <Span>{item.score === null ? "5.0" : item.score}</Span>
+            </Carousel.Item>
           );
         })}
-      </Slider>
+      </Carousel>
     </Scroll>
   );
 };

@@ -11,6 +11,7 @@
     "embla-carousel-react": "^5.0.1",
     "i": "^0.3.7",
     "npm": "^8.0.0",
+    "owl.carousel2": "^2.2.2",
     "react": "^17.0.2",
     "react-alice-carousel": "^2.5.1",
     "react-dom": "^17.0.2",
