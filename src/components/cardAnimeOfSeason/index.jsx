@@ -27,19 +27,19 @@ const CardAnimeOfSeason = () => {
         }}
         responsiveLayout={[
           {
-            breakpoint: 1100,
+            breakpoint: 1300,
             cols: 5,
           },
           {
-            breakpoint: 900,
+            breakpoint: 1100,
             cols: 4,
           },
           {
-            breakpoint: 700,
+            breakpoint: 900,
             cols: 3,
           },
           {
-            breakpoint: 500,
+            breakpoint: 700,
             cols: 2,
           },
         ]}
@@ -47,8 +47,9 @@ const CardAnimeOfSeason = () => {
       >
         {animeOfSeason.map((item) => {
           return (
-            <Carousel.Item onClick={() => handleClick(item)}>
+            <Carousel.Item>
               <img
+                onClick={() => handleClick(item)}
                 width="100%"
                 height="300px"
                 src={item.image_url}

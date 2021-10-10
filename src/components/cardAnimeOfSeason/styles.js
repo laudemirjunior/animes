@@ -9,6 +9,9 @@ export const Scroll = styled.div`
   border-radius: 10px;
   border: 1px solid var(--purple);
   box-shadow: 0px 31.6855px 63.3711px rgba(123, 73, 201, 0.3);
+  img {
+    cursor: pointer;
+  }
 `;
 
 export const Span = styled.div`

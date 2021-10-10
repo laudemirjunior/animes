@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Nunito', sans-serif;
     background-color: black;
+    color: white;
   }
   h1 {
     font-weight: 600;

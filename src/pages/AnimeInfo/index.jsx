@@ -9,7 +9,6 @@ function AnimeInfo() {
   const { title } = useParams();
   const [video, setVideo] = useState([]);
   const [show, setShow] = useState(false);
-  console.log(title);
 
   const anime = animeOfSeason.find((item) => item.title === title);
 
@@ -17,8 +16,7 @@ function AnimeInfo() {
     api
       .get(`/anime/${anime.mal_id}/videos`)
       .then((response) => setVideo(response.data.promo))
-      .then(() => setShow(true))
-      .catch((err) => console.log(err));
+      .then(() => setShow(true));
   }, []);
 
   return (
@@ -32,14 +30,14 @@ function AnimeInfo() {
             Score: <span>{anime.score === null ? "Unknown" : anime.score}</span>
           </p>
           <p>
-            Licensors:{" "}
+            Licensors:
             {Boolean(anime.licensors[0]) === false
               ? "Unknown"
               : anime.licensors[0]}
           </p>
           <p>Genres: {anime.genres.map((genre) => `${genre.name}, `)}</p>
           <p>
-            Producers:{" "}
+            Producers:
             {Boolean(anime.producers[0].name) === false
               ? "Unknown"
               : anime.producers[0].name}
@@ -47,8 +45,8 @@ function AnimeInfo() {
           <p>Synopsis: {anime.synopsis}</p>
           <p>Source: {anime.source}</p>
           <iframe
-            width="420"
-            height="315"
+            width="400"
+            height="300"
             title="video"
             src={video[0].video_url}
           ></iframe>

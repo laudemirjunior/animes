@@ -10,15 +10,11 @@ export const AnimeOfSeasonProvider = ({ children }) => {
   useEffect(() => {
     api
       .get("/season/2021/fall")
-      .then((response) => setAnimeOfSeason(response.data.anime))
-      .catch((err) => console.log(err));
+      .then((response) => setAnimeOfSeason(response.data.anime));
   }, []);
 
   useEffect(() => {
-    api
-      .get("/top/anime")
-      .then((response) => setTopAnime(response.data))
-      .catch((err) => console.log(err));
+    api.get("/top/anime").then((response) => setTopAnime(response.data));
   }, []);
 
   return (

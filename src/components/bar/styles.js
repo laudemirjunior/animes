@@ -14,6 +14,11 @@ export const StyleBar = styled.div`
     span {
       margin: 10px;
       font-weight: 600;
+      cursor: pointer;
+      :hover {
+        color: black;
+        transition-duration: 0.5s;
+      }
     }
   }
 `;
