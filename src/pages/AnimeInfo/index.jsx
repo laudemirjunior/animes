@@ -10,6 +10,8 @@ function AnimeInfo() {
   const [video, setVideo] = useState([]);
   const [show, setShow] = useState(false);
 
+  console.log(animeOfSeason);
+
   const anime = animeOfSeason.find((item) => item.title === title);
 
   useEffect(() => {
@@ -17,7 +19,7 @@ function AnimeInfo() {
       .get(`/anime/${anime.mal_id}/videos`)
       .then((response) => setVideo(response.data.promo))
       .then(() => setShow(true));
-  }, []);
+  });
 
   return (
     <div>
