@@ -5,8 +5,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border: none;
-    outline: none;
+
   }
   :root{
         --purple: #6D28D9;
@@ -20,6 +19,8 @@ const GlobalStyle = createGlobalStyle`
   }
   h1 {
     font-weight: 600;
+    text-align: center;
+    margin: 20px 0;
   }
 `;
 

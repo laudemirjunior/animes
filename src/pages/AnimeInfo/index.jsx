@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { AnimeOfSeasonContext } from "../../providers/animeOfSeason";
 import Bar from "../../components/bar";
 import api from "../../services";
+import { Container } from "./styles";
 
 function AnimeInfo() {
   const { animeOfSeason } = useContext(AnimeOfSeasonContext);
@@ -28,41 +29,51 @@ function AnimeInfo() {
   });
 
   return (
-    <div>
-      <Bar />
+    <>
       {animeOfSeason.length > 0 && (
         <div>
-          <img style={{ width: "200px" }} src={anime.image_url} alt="" />
-          <p>Title: {anime.title}</p>
-          <p>
-            Score: <span>{anime.score === null ? "Unknown" : anime.score}</span>
-          </p>
-          <p>
-            Licensors:
-            {Boolean(anime.licensors[0]) === false
-              ? "Unknown"
-              : anime.licensors[0]}
-          </p>
-          <p>Genres: {anime.genres.map((genre) => `${genre.name}, `)}</p>
-          <p>
-            Producers:
-            {Boolean(anime.producers[0].name) === false
-              ? "Unknown"
-              : anime.producers[0].name}
-          </p>
-          <p>Synopsis: {anime.synopsis}</p>
-          <p>Source: {anime.source}</p>
-          {show && (
-            <iframe
-              width="400"
-              height="300"
-              title="video"
-              src={video[0].video_url}
-            ></iframe>
-          )}
+          <Bar />
+          <h1>Title: {anime.title}</h1>
+          <Container>
+            <div className="image">
+              <img style={{ width: "200px" }} src={anime.image_url} alt="" />
+            </div>
+            <div className="video">
+              {show && (
+                <iframe
+                  border="0"
+                  width="530"
+                  height="300"
+                  title="video"
+                  src={video[0].video_url}
+                ></iframe>
+              )}
+            </div>
+            <div className="text">
+              <p>
+                Score:{" "}
+                <span>{anime.score === null ? "Unknown" : anime.score}</span>
+              </p>
+              <p>
+                Licensors:
+                {Boolean(anime.licensors[0]) === false
+                  ? "Unknown"
+                  : anime.licensors[0]}
+              </p>
+              <p>Genres: {anime.genres.map((genre) => `${genre.name}, `)}</p>
+              <p>
+                Producers:
+                {Boolean(anime.producers[0].name) === false
+                  ? "Unknown"
+                  : anime.producers[0].name}
+              </p>
+              <p>Synopsis: {anime.synopsis}</p>
+              <p>Source: {anime.source}</p>
+            </div>
+          </Container>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

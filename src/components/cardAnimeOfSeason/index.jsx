@@ -1,7 +1,7 @@
 import { AnimeOfSeasonContext } from "../../providers/animeOfSeason";
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { Scroll, Span, Video, Wallpaper } from "./styles";
+import { Scroll, Span, Video, Wallpaper, MainContainer } from "./styles";
 import wallpaper from "./wallpaper";
 import Carousel from "react-grid-carousel";
 
@@ -14,7 +14,7 @@ const CardAnimeOfSeason = () => {
   }
 
   return (
-    <>
+    <MainContainer>
       <Wallpaper>
         <Video autoPlay loop muted>
           <source src={wallpaper.video} type="video/mp4" />
@@ -27,11 +27,6 @@ const CardAnimeOfSeason = () => {
           gap={10}
           loop={true}
           autoplay={5000}
-          containerStyle={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
           responsiveLayout={[
             {
               breakpoint: 1300,
@@ -55,13 +50,15 @@ const CardAnimeOfSeason = () => {
           {topAnime.map((item) => {
             return (
               <Carousel.Item>
-                <img
-                  width="100%"
-                  height="300px"
-                  src={item.image_url}
-                  alt=""
-                ></img>
-                <Span>{item.score === null ? "5.0" : item.score}</Span>
+                <div style={{ overflow: "hidden", height: "300px" }}>
+                  <img
+                    width="200px"
+                    height="100%"
+                    src={item.image_url}
+                    alt=""
+                  ></img>
+                  <Span>{item.score === null ? "5.0" : item.score}</Span>
+                </div>
               </Carousel.Item>
             );
           })}
@@ -102,14 +99,16 @@ const CardAnimeOfSeason = () => {
           {animeOfSeason.map((item) => {
             return (
               <Carousel.Item>
-                <img
-                  onClick={() => handleClick(item)}
-                  width="100%"
-                  height="300px"
-                  src={item.image_url}
-                  alt=""
-                ></img>
-                <Span>{item.score === null ? "5.0" : item.score}</Span>
+                <div style={{ overflow: "hidden", height: "300px" }}>
+                  <img
+                    width="200px"
+                    height="100%"
+                    onClick={() => handleClick(item)}
+                    src={item.image_url}
+                    alt=""
+                  ></img>
+                  <Span>{item.score === null ? "5.0" : item.score}</Span>
+                </div>
               </Carousel.Item>
             );
           })}
@@ -122,11 +121,6 @@ const CardAnimeOfSeason = () => {
           gap={10}
           loop={true}
           autoplay={5000}
-          containerStyle={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
           responsiveLayout={[
             {
               breakpoint: 1300,
@@ -154,19 +148,20 @@ const CardAnimeOfSeason = () => {
           {manga.map((item) => {
             return (
               <Carousel.Item>
-                <img
-                  width="100%"
-                  height="200px"
-                  src={item.image_url}
-                  alt=""
-                ></img>
-                <Span>{item.score === null ? "5.0" : item.score}</Span>
+                <div style={{ overflow: "hidden", height: "200px" }}>
+                  <img
+                    width="200px"
+                    height="100%"
+                    src={item.image_url}
+                    alt=""
+                  ></img>
+                </div>
               </Carousel.Item>
             );
           })}
         </Carousel>
       </Scroll>
-    </>
+    </MainContainer>
   );
 };
 
