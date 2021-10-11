@@ -23,4 +23,24 @@ export const Container = styled.div`
     grid-area: text;
     text-align: justify;
   }
+  @media (max-width: 500px) {
+    padding: 0 10px;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "image image image image"
+      "video video video video"
+      "text text text text";
+    & .image {
+      margin: auto;
+    }
+    & .video {
+      margin: auto;
+      iframe {
+        grid-area: video;
+        text-align: right;
+        width: 300px;
+        height: 200px;
+      }
+    }
+  }
 `;
