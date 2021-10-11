@@ -1,7 +1,8 @@
 import { AnimeOfSeasonContext } from "../../providers/animeOfSeason";
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { Scroll, Span } from "./styles";
+import { Scroll, Span, Video, Wallpaper } from "./styles";
+import wallpaper from "./wallpaper";
 import Carousel from "react-grid-carousel";
 
 const CardAnimeOfSeason = () => {
@@ -14,6 +15,11 @@ const CardAnimeOfSeason = () => {
 
   return (
     <>
+      <Wallpaper>
+        <Video autoPlay loop muted>
+          <source src={wallpaper.video} type="video/mp4" />
+        </Video>
+      </Wallpaper>
       <Scroll>
         <Carousel
           cols={6}

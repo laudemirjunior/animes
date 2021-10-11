@@ -5,13 +5,15 @@ const Bar = () => {
   const history = useHistory();
   return (
     <StyleBar>
-      <div>
-        <span onClick={() => history.push("/")}>Home</span>
-      </div>
-      <div>
-        <span>Cadastro</span>
-        <span>Login</span>
-      </div>
+      <article>
+        <div>
+          <span onClick={() => history.push("/")}>Home</span>
+        </div>
+        <div>
+          <span>Cadastro</span>
+          <span>Login</span>
+        </div>
+      </article>
     </StyleBar>
   );
 };
