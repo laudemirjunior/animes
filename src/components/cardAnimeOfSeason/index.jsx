@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Scroll, Span, Video, Wallpaper, MainContainer } from "./styles";
 import wallpaper from "./wallpaper";
-import Carousel from "react-grid-carousel";
+import Slider from "react-slick";
 
 const CardAnimeOfSeason = () => {
   const { animeOfSeason, topAnime, manga } = useContext(AnimeOfSeasonContext);
@@ -13,6 +13,58 @@ const CardAnimeOfSeason = () => {
     history.push(`/anime/${item.title}`);
   }
 
+  var settings = {
+    speed: 400,
+    dots: false,
+    infinite: true,
+    slidesToShow: 6,
+    slidesToScroll: 6,
+    responsive: [
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 6,
+          slidesToScroll: 6,
+        },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 5,
+        },
+      },
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <MainContainer>
       <Wallpaper>
@@ -20,146 +72,59 @@ const CardAnimeOfSeason = () => {
           <source src={wallpaper.video} type="video/mp4" />
         </Video>
       </Wallpaper>
+      <h1>Top</h1>
       <Scroll>
-        <Carousel
-          cols={6}
-          rows={1}
-          gap={10}
-          loop={true}
-          autoplay={5000}
-          responsiveLayout={[
-            {
-              breakpoint: 1300,
-              cols: 5,
-            },
-            {
-              breakpoint: 1100,
-              cols: 4,
-            },
-            {
-              breakpoint: 900,
-              cols: 3,
-            },
-            {
-              breakpoint: 700,
-              cols: 2,
-            },
-          ]}
-          mobileBreakpoint={350}
-        >
+        <Slider {...settings}>
           {topAnime.map((item) => {
             return (
-              <Carousel.Item>
-                <div style={{ overflow: "hidden", height: "300px" }}>
-                  <img
-                    width="200px"
-                    height="100%"
-                    src={item.image_url}
-                    alt=""
-                  ></img>
-                  <Span>{item.score === null ? "5.0" : item.score}</Span>
-                </div>
-              </Carousel.Item>
+              <>
+                <img
+                  width="200px"
+                  height="300px"
+                  src={item.image_url}
+                  alt=""
+                ></img>
+                <Span>{item.score === null ? "5.0" : item.score}</Span>
+              </>
             );
           })}
-        </Carousel>
+        </Slider>
       </Scroll>
+      <h1>Season</h1>
       <Scroll>
-        <Carousel
-          cols={6}
-          rows={1}
-          gap={10}
-          loop={true}
-          autoplay={5000}
-          containerStyle={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          responsiveLayout={[
-            {
-              breakpoint: 1300,
-              cols: 5,
-            },
-            {
-              breakpoint: 1100,
-              cols: 4,
-            },
-            {
-              breakpoint: 900,
-              cols: 3,
-            },
-            {
-              breakpoint: 700,
-              cols: 2,
-            },
-          ]}
-          mobileBreakpoint={350}
-        >
+        <Slider {...settings}>
           {animeOfSeason.map((item) => {
             return (
-              <Carousel.Item>
-                <div style={{ overflow: "hidden", height: "300px" }}>
-                  <img
-                    width="200px"
-                    height="100%"
-                    onClick={() => handleClick(item)}
-                    src={item.image_url}
-                    alt=""
-                  ></img>
-                  <Span>{item.score === null ? "5.0" : item.score}</Span>
-                </div>
-              </Carousel.Item>
+              <>
+                <img
+                  width="200px"
+                  height="300px"
+                  onClick={() => handleClick(item)}
+                  src={item.image_url}
+                  alt=""
+                ></img>
+                <Span>{item.score === null ? "5.0" : item.score}</Span>
+              </>
             );
           })}
-        </Carousel>
+        </Slider>
       </Scroll>
+      <h1>Mangá</h1>
       <Scroll>
-        <Carousel
-          cols={9}
-          rows={1}
-          gap={10}
-          loop={true}
-          autoplay={5000}
-          responsiveLayout={[
-            {
-              breakpoint: 1300,
-              cols: 8,
-            },
-            {
-              breakpoint: 1100,
-              cols: 7,
-            },
-            {
-              breakpoint: 900,
-              cols: 5,
-            },
-            {
-              breakpoint: 700,
-              cols: 3,
-            },
-            {
-              breakpoint: 400,
-              cols: 2,
-            },
-          ]}
-          mobileBreakpoint={250}
-        >
+        <Slider {...settings}>
           {manga.map((item) => {
             return (
-              <Carousel.Item>
-                <div style={{ overflow: "hidden", height: "200px" }}>
-                  <img
-                    width="200px"
-                    height="100%"
-                    src={item.image_url}
-                    alt=""
-                  ></img>
-                </div>
-              </Carousel.Item>
+              <>
+                <img
+                  width="200px"
+                  height="300px"
+                  src={item.image_url}
+                  alt=""
+                ></img>
+              </>
             );
           })}
-        </Carousel>
+        </Slider>
       </Scroll>
     </MainContainer>
   );

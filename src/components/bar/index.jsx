@@ -10,6 +10,7 @@ const Bar = () => {
           <span onClick={() => history.push("/")}>Home</span>
         </div>
         <div>
+          <span onClick={() => history.push("/form")}>Form</span>
           <span>Cadastro</span>
           <span>Login</span>
         </div>
