@@ -10,8 +10,8 @@ const Bar = () => {
           <span onClick={() => history.push("/")}>Home</span>
         </div>
         <div>
-          <span onClick={() => history.push("/form")}>Sign Up</span>
-          <span>Login</span>
+          <span onClick={() => history.push("/signup")}>Sign Up</span>
+          <span onClick={() => history.push("/login")}>Login</span>
         </div>
       </article>
     </StyleBar>

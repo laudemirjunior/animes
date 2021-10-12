@@ -2,8 +2,9 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
+import Bar from "../../components/bar";
 
-function Form() {
+function SignUp() {
   const formSchema = yup.object().shape({
     user: yup.string().required("Nome de usuário obrigatorio"),
     email: yup.string().required("E-mail obrigatório"),
@@ -11,6 +12,7 @@ function Form() {
       .string()
       .required("Confirmação do e-mail obrigatório")
       .oneOf([yup.ref("email"), null], "Os emails devem corresponder"),
+    password: yup.string().required("Senha obrigatória"),
     confirmPassword: yup
       .string()
       .required("Confirmação da senha obrigatória")
@@ -39,8 +41,9 @@ function Form() {
 
   return (
     <div>
+      <Bar />
       <form className="form" onSubmit={handleSubmit(onSubmitFunction)}>
-        <h1>Form</h1>
+        <h1>Sign Up</h1>
         <div>
           {errors.user?.message}
           <input
@@ -98,4 +101,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default SignUp;

@@ -67,7 +67,7 @@ const CardAnimeOfSeason = () => {
 
   return (
     <MainContainer>
-      <Wallpaper>
+      <Wallpaper onChange={(e) => console.log(e.current.focus())}>
         <Video autoPlay loop muted>
           <source src={wallpaper.video} type="video/mp4" />
         </Video>
@@ -79,6 +79,7 @@ const CardAnimeOfSeason = () => {
             return (
               <>
                 <img
+                  onClick={() => handleClick(item)}
                   width="200px"
                   height="300px"
                   src={item.image_url}
@@ -116,6 +117,7 @@ const CardAnimeOfSeason = () => {
             return (
               <>
                 <img
+                  onClick={() => handleClick(item)}
                   width="200px"
                   height="300px"
                   src={item.image_url}

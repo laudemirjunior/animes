@@ -18,6 +18,14 @@ export const Container = styled.div`
   & .video {
     grid-area: video;
     text-align: right;
+    iframe {
+      max-width: 500px;
+      max-height: 300px;
+      width: 100%;
+      height: 100%;
+      min-width: 300px;
+      min-height: 200px;
+    }
   }
   & .text {
     grid-area: text;
@@ -38,8 +46,6 @@ export const Container = styled.div`
       iframe {
         grid-area: video;
         text-align: right;
-        width: 300px;
-        height: 200px;
       }
     }
   }

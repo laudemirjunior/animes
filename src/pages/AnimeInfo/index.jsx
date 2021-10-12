@@ -42,8 +42,6 @@ function AnimeInfo() {
               {show && (
                 <iframe
                   border="0"
-                  width="530"
-                  height="300"
                   title="video"
                   src={video[0].video_url}
                 ></iframe>
