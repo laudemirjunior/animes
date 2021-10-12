@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { AnimeOfSeasonContext } from "../../providers/animeOfSeason";
+
 import Bar from "../../components/bar";
 import api from "../../services";
 import { Container } from "./styles";

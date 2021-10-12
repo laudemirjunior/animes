@@ -5,7 +5,27 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    ::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #3c005a;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
 
+::-webkit-scrollbar-track {
+  background: black;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+} 
   }
   :root{
         --purple: #6D28D9;

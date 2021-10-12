@@ -13,7 +13,7 @@ const CardAnimeOfSeason = () => {
     history.push(`/anime/${item.title}`);
   }
 
-  var settings = {
+  let settings = {
     speed: 400,
     dots: false,
     infinite: true,
