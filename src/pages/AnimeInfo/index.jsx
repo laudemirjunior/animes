@@ -7,8 +7,8 @@ import { Container } from "./styles";
 
 function AnimeInfo() {
   const { id, title } = useParams();
-  const [video, setVideo] = useState();
-  const [anime, setAnime] = useState();
+  const [anime, setAnime] = useState([]);
+  const [video, setVideo] = useState("");
 
   useEffect(() => {
     api.get(`/search/anime?q=${title}&page=1&limit=1`).then((response) => {
@@ -24,7 +24,7 @@ function AnimeInfo() {
 
   return (
     <>
-      {anime !== undefined && (
+      {anime.length > 0 && (
         <div>
           <Bar />
           <h1>{anime[0].title}</h1>
@@ -33,7 +33,7 @@ function AnimeInfo() {
               <img style={{ width: "200px" }} src={anime[0].image_url} alt="" />
             </div>
             <div className="video">
-              {video !== undefined && (
+              {video !== "" && (
                 <iframe
                   src={video}
                   title="video player"

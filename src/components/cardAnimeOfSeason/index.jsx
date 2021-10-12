@@ -4,9 +4,12 @@ import { useHistory } from "react-router-dom";
 import { Scroll, Span, Video, Wallpaper, MainContainer } from "./styles";
 import wallpaper from "./wallpaper";
 import Slider from "react-slick";
+import { SearchCurrentAnimesContext } from "../../providers/calendary";
 
 const CardAnimeOfSeason = () => {
   const { animeOfSeason, topAnime, manga } = useContext(AnimeOfSeasonContext);
+  const { currentAnimes } = useContext(SearchCurrentAnimesContext);
+
   let history = useHistory();
 
   function handleClick(item) {
@@ -72,6 +75,25 @@ const CardAnimeOfSeason = () => {
           <source src={wallpaper.video} type="video/mp4" />
         </Video>
       </Wallpaper>
+      <h1>Animes of day</h1>
+      <Scroll>
+        <Slider {...settings}>
+          {currentAnimes.map((item) => {
+            return (
+              <>
+                <img
+                  onClick={() => handleClick(item)}
+                  width="200px"
+                  height="300px"
+                  src={item.image_url}
+                  alt=""
+                ></img>
+                <Span>{item.score === null ? "N/A" : item.score}</Span>
+              </>
+            );
+          })}
+        </Slider>
+      </Scroll>
       <h1>Top</h1>
       <Scroll>
         <Slider {...settings}>
@@ -85,7 +107,7 @@ const CardAnimeOfSeason = () => {
                   src={item.image_url}
                   alt=""
                 ></img>
-                <Span>{item.score === null ? "5.0" : item.score}</Span>
+                <Span>{item.score === null ? "N/A" : item.score}</Span>
               </>
             );
           })}
@@ -104,7 +126,7 @@ const CardAnimeOfSeason = () => {
                   src={item.image_url}
                   alt=""
                 ></img>
-                <Span>{item.score === null ? "5.0" : item.score}</Span>
+                <Span>{item.score === null ? "N/A" : item.score}</Span>
               </>
             );
           })}
