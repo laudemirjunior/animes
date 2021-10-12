@@ -123,6 +123,7 @@ const CardAnimeOfSeason = () => {
                   src={item.image_url}
                   alt=""
                 ></img>
+                <Span>{item.score !== Number ? "5.0" : item.score}</Span>
               </>
             );
           })}

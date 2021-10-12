@@ -31,7 +31,7 @@ export const Container = styled.div`
     grid-area: text;
     text-align: justify;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     padding: 0 10px;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
