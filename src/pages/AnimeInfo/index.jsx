@@ -1,37 +1,43 @@
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router";
-import { AnimeOfSeasonContext } from "../../providers/animeOfSeason";
-
+import { useEffect } from "react/cjs/react.development";
 import Bar from "../../components/bar";
 import api from "../../services";
 import { Container } from "./styles";
 
 function AnimeInfo() {
-  const { animeOfSeason } = useContext(AnimeOfSeasonContext);
   const { title } = useParams();
-  const [video, setVideo] = useState([]);
   const [show, setShow] = useState(false);
+  const [video, setVideo] = useState([]);
+  const [animes, setAnimes] = useState([]);
 
-  const anime = animeOfSeason.find((item) => item.title === title);
+  useEffect(() => {
+    api
+      .get(`/search/anime?q=${title}`)
+      .then((response) => {
+        if (title !== "") {
+          setAnimes(response.data.results);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
-  const search = () => {
-    if (animeOfSeason.length > 0) {
+  const anime = animes.find((item) => item.title === title);
+
+  useEffect(() => {
+    if (anime !== undefined) {
       api
         .get(`/anime/${anime.mal_id}/videos`)
         .then((response) => setVideo(response.data.promo))
         .then(() => {
-          if (video.length > 0) setShow(true);
+          if (video !== undefined) setShow(true);
         });
     }
-  };
-
-  useEffect(() => {
-    search();
-  });
+  }, []);
 
   return (
     <>
-      {animeOfSeason.length > 0 && (
+      {anime !== undefined && (
         <div>
           <Bar />
           <h1>Title: {anime.title}</h1>
@@ -52,19 +58,6 @@ function AnimeInfo() {
               <p>
                 Score:{" "}
                 <span>{anime.score === null ? "Unknown" : anime.score}</span>
-              </p>
-              <p>
-                Licensors:
-                {Boolean(anime.licensors[0]) === false
-                  ? "Unknown"
-                  : anime.licensors[0]}
-              </p>
-              <p>Genres: {anime.genres.map((genre) => `${genre.name}, `)}</p>
-              <p>
-                Producers:
-                {Boolean(anime.producers[0].name) === false
-                  ? "Unknown"
-                  : anime.producers[0].name}
               </p>
               <p>Synopsis: {anime.synopsis}</p>
               <p>Source: {anime.source}</p>
