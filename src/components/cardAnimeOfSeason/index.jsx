@@ -10,7 +10,7 @@ const CardAnimeOfSeason = () => {
   let history = useHistory();
 
   function handleClick(item) {
-    history.push(`/anime/${item.title}`);
+    history.push(`/anime/${item.mal_id}/${item.title}`);
   }
 
   let settings = {
@@ -123,7 +123,7 @@ const CardAnimeOfSeason = () => {
                   src={item.image_url}
                   alt=""
                 ></img>
-                <Span>{item.score !== Number ? "5.0" : item.score}</Span>
+                <Span>{item.score !== Number ? "N/A" : item.score}</Span>
               </>
             );
           })}

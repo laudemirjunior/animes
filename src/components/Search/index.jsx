@@ -30,7 +30,7 @@ function Search() {
 
         {show && (
           <Container>
-            {animes.slice(0, 10).map((anime, index) => (
+            {animes.map((anime, index) => (
               <>
                 <SearchCard key={index} anime={anime} />
               </>

@@ -8,7 +8,7 @@ export const SearchAnimesProvider = ({ children }) => {
 
   function handleSearch(animeName) {
     api
-      .get(`/search/anime?q=${animeName}`)
+      .get(`/search/anime?q=${animeName}&page=1&limit=10`)
       .then((response) => {
         if (animeName !== "") {
           setAnimes(response.data.results);

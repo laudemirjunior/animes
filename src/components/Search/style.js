@@ -16,12 +16,10 @@ export const Input = styled.input`
   }
 
   :-moz-placeholder {
-    /* Firefox 18- */
     color: #ffffff;
   }
 
   ::-moz-placeholder {
-    /* Firefox 19+ */
     color: #ffffff;
   }
 

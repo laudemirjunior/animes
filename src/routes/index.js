@@ -10,7 +10,7 @@ const Routes = () => {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route path="/anime/:title">
+      <Route path="/anime/:id/:title">
         <AnimeInfo />
       </Route>
       <Route path="/signup">
