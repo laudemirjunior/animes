@@ -15,14 +15,17 @@ function Search() {
           type="text"
           placeholder="Pesquise um anime"
           onFocus={() => setShow(true)}
-          onBlur={(evt) => {
-            if (evt.target.value === "") {
-              setAnimes([]);
-              setShow(false);
-            } else {
-              setShow(false);
-            }
-          }}
+          // onBlur={(evt) => {
+          //   if (evt.target.value === "") {
+          //     setAnimes([]);
+          //     setShow(false);
+          //     if (evt.target.value !== "") {
+          //       handleSearch(evt.target.value);
+          //     }
+          //   } else {
+          //     setShow(false);
+          //   }
+          // }}
           onChange={(evt) =>
             evt.target.value !== "" && handleSearch(evt.target.value)
           }
