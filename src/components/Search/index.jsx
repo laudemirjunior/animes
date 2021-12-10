@@ -15,17 +15,17 @@ function Search() {
           type="text"
           placeholder="Pesquise um anime"
           onFocus={() => setShow(true)}
-          // onBlur={(evt) => {
-          //   if (evt.target.value === "") {
-          //     setAnimes([]);
-          //     setShow(false);
-          //     if (evt.target.value !== "") {
-          //       handleSearch(evt.target.value);
-          //     }
-          //   } else {
-          //     setShow(false);
-          //   }
-          // }}
+          onBlur={(evt) => {
+            if (evt.target.value === "") {
+              setAnimes([]);
+              setShow(false);
+              if (evt.target.value !== "") {
+                handleSearch(evt.target.value);
+              }
+            } else {
+              setShow(false);
+            }
+          }}
           onChange={(evt) =>
             evt.target.value !== "" && handleSearch(evt.target.value)
           }
@@ -34,9 +34,7 @@ function Search() {
         {show && (
           <Container>
             {animes.map((anime, index) => (
-              <>
-                <SearchCard key={index} anime={anime} />
-              </>
+              <SearchCard key={index} anime={anime} />
             ))}
           </Container>
         )}

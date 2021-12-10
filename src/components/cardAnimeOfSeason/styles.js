@@ -46,7 +46,7 @@ export const Scroll = styled.div`
   }
   :hover .slick-next,
   :hover .slick-prev {
-    opacity: 0.5;
+    opacity: 0.8;
     transition-duration: 0.5s;
   }
   div {

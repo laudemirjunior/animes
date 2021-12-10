@@ -1,5 +1,4 @@
 import { useHistory } from "react-router";
-import { Link } from "react-router-dom";
 import { Card } from "./style";
 
 function SearchCard({ anime }) {
