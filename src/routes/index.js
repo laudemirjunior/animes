@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router";
+import { Route, Switch } from "react-router-dom";
 import AnimeInfo from "../pages/AnimeInfo";
 import Home from "../pages/home";
 
