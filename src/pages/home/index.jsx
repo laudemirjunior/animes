@@ -3,10 +3,10 @@ import CardAnimeOfSeason from "../../components/cardAnimeOfSeason";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Bar />
       <CardAnimeOfSeason />
-    </div>
+    </>
   );
 };
 
