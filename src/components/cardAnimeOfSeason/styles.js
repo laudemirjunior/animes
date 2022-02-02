@@ -82,12 +82,17 @@ export const Span = styled.div`
   font-size: 14px;
 `;
 
-export const Video = styled.video`
+export const Video = styled.iframe`
   width: 100%;
   margin: 20px auto;
   max-width: 1280px;
+  height: 50vw;
   background-color: var(--blue);
   border-radius: 10px;
   border: 1px solid var(--purple);
   box-shadow: 0px 30px 60px r;
+  @media (min-width: 1440px) {
+    max-width: 1280px;
+    height: 720px;
+  }
 `;

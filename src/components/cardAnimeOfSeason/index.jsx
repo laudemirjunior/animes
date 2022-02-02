@@ -2,7 +2,7 @@ import { AnimeOfSeasonContext } from "../../providers/animeOfSeason";
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Scroll, Span, Video, Wallpaper, MainContainer } from "./styles";
-import wallpaper from "./wallpaper";
+import banner from "./banner";
 import Slider from "react-slick";
 import { SearchCurrentAnimesContext } from "../../providers/calendary";
 
@@ -71,9 +71,7 @@ const CardAnimeOfSeason = () => {
   return (
     <MainContainer>
       <Wallpaper onChange={(e) => console.log(e.current.focus())}>
-        <Video autoPlay loop muted>
-          <source src={wallpaper.video} type="video/mp4" />
-        </Video>
+        <Video src={banner.video} />
       </Wallpaper>
       <h1>Animes of day</h1>
       <Scroll>
