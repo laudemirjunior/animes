@@ -8,7 +8,6 @@ export const Card = styled.div`
   width: 200px;
   padding: 10px;
   cursor: pointer;
-
   &:hover {
     transition-duration: 1s;
     background: var(--purple);
@@ -16,7 +15,6 @@ export const Card = styled.div`
     color: black;
     font-weight: bold;
   }
-
   div {
     display: flex;
     flex-direction: column;
@@ -24,7 +22,6 @@ export const Card = styled.div`
     align-items: center;
     text-align: center;
   }
-
   img {
     height: 100px;
     width: 70px;

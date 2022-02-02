@@ -10,19 +10,15 @@ export const Input = styled.input`
   background: transparent;
   border: 2px solid #3c005a;
   color: #ffffff;
-
   ::-webkit-input-placeholder {
     color: #ffffff;
   }
-
   :-moz-placeholder {
     color: #ffffff;
   }
-
   ::-moz-placeholder {
     color: #ffffff;
   }
-
   :-ms-input-placeholder {
     color: #ffffff;
   }
@@ -40,7 +36,6 @@ export const Container = styled.div`
   border: 1px solid var(--purple);
   box-shadow: 0px 30px 60px rgba(123, 73, 201, 0.3);
   max-height: 440px;
-
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;

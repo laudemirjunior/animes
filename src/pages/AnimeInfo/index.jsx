@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import { useEffect } from "react/cjs/react.development";
 import Bar from "../../components/bar";
 import api from "../../services";
