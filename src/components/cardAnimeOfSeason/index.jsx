@@ -13,39 +13,34 @@ const CardAnimeOfSeason = () => {
   let history = useHistory();
 
   function handleClick(item) {
-    history.push(`/anime/${item.mal_id}/${item.title}`);
+    if (drag === false) {
+      history.push(`/anime/${item.mal_id}/${item.title}`);
+    }
+    return;
   }
+
+  let drag = false;
+
+  document.addEventListener("mousedown", () => (drag = false));
+
+  document.addEventListener("mousemove", () => (drag = true));
 
   let settings = {
     speed: 400,
     dots: false,
     infinite: true,
-    slidesToShow: 6,
-    slidesToScroll: 6,
+    slidesToShow: 5,
+    slidesToScroll: 5,
     responsive: [
       {
-        breakpoint: 1400,
-        settings: {
-          slidesToShow: 6,
-          slidesToScroll: 6,
-        },
-      },
-      {
         breakpoint: 1200,
-        settings: {
-          slidesToShow: 5,
-          slidesToScroll: 5,
-        },
-      },
-      {
-        breakpoint: 1000,
         settings: {
           slidesToShow: 4,
           slidesToScroll: 4,
         },
       },
       {
-        breakpoint: 800,
+        breakpoint: 900,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -78,16 +73,22 @@ const CardAnimeOfSeason = () => {
         <Slider {...settings}>
           {currentAnimes.map((item) => {
             return (
-              <>
+              <div
+                style={{
+                  justifyContent: "center",
+                  backgroundColor: "red",
+                  width: "320px",
+                }}
+              >
                 <img
                   onClick={() => handleClick(item)}
-                  width="200px"
-                  height="300px"
+                  width="100%"
+                  height="330px"
                   src={item.image_url}
                   alt=""
                 ></img>
                 <Span>{item.score === null ? "N/A" : item.score}</Span>
-              </>
+              </div>
             );
           })}
         </Slider>
@@ -97,16 +98,22 @@ const CardAnimeOfSeason = () => {
         <Slider {...settings}>
           {topAnime.map((item) => {
             return (
-              <>
+              <div
+                style={{
+                  justifyContent: "center",
+                  backgroundColor: "red",
+                  width: "320px",
+                }}
+              >
                 <img
                   onClick={() => handleClick(item)}
-                  width="200px"
-                  height="300px"
+                  width="100%"
+                  height="330px"
                   src={item.image_url}
                   alt=""
                 ></img>
                 <Span>{item.score === null ? "N/A" : item.score}</Span>
-              </>
+              </div>
             );
           })}
         </Slider>
@@ -116,16 +123,22 @@ const CardAnimeOfSeason = () => {
         <Slider {...settings}>
           {animeOfSeason.map((item) => {
             return (
-              <>
+              <div
+                style={{
+                  justifyContent: "center",
+                  backgroundColor: "red",
+                  width: "320px",
+                }}
+              >
                 <img
-                  width="200px"
-                  height="300px"
                   onClick={() => handleClick(item)}
+                  width="100%"
+                  height="330px"
                   src={item.image_url}
                   alt=""
                 ></img>
                 <Span>{item.score === null ? "N/A" : item.score}</Span>
-              </>
+              </div>
             );
           })}
         </Slider>
@@ -135,16 +148,22 @@ const CardAnimeOfSeason = () => {
         <Slider {...settings}>
           {manga.map((item) => {
             return (
-              <>
+              <div
+                style={{
+                  justifyContent: "center",
+                  backgroundColor: "red",
+                  width: "320px",
+                }}
+              >
                 <img
                   onClick={() => handleClick(item)}
-                  width="200px"
-                  height="300px"
+                  width="100%"
+                  height="330px"
                   src={item.image_url}
                   alt=""
                 ></img>
-                <Span>{item.score !== Number ? "N/A" : item.score}</Span>
-              </>
+                <Span>{item.score === null ? "N/A" : item.score}</Span>
+              </div>
             );
           })}
         </Slider>
